@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #textBox{
+            background-color: rgb(198, 198, 198);
+            width: 200px;
+            height: 40px;
+        }
+
+        #numButtons{
+            width: 200px;
+           
+        }
+
+
+    </style>
+    <script src = "Calc.js">
+    </script>
+    <meta charset="utf-8"/>
+    
+    <title>
+        Simple Calculator
+    </title>
+
+    <h1 id = "textBox">
+
+    </h1>
+
+</head>
+<body>
+    <p id = "numButtons">
+    <button onclick = "numButtonClick(1)"> 1</button>
+    <button onclick = "numButtonClick(2)"> 2</button>
+    <button onclick = "numButtonClick(3)"> 3</button>
+
+    <button onclick = "numButtonClick(4)"> 4</button>
+    <button onclick = "numButtonClick(5)"> 5</button>
+    <button onclick = "numButtonClick(6)"> 6</button>
+
+    <button onclick = "numButtonClick(7)"> 7</button>
+    <button onclick = "numButtonClick(8)"> 8</button>
+    <button onclick = "numButtonClick(9)"> 9</button>
+
+    <button onclick = "numButtonClick(0)"> 0</button>
+    </p>
+
+    <p id = "opButtons">
+    <button onclick="operatorClick(0, '+')">+</button>
+    <button onclick="operatorClick(1, '-')">-</button>
+    <button onclick="operatorClick(2, '&#247')"> &#247</button>
+    <button onclick="operatorClick(3, '&times')">&times</button>
+
+    <button onclick="operatorClick(4, '&#8730')">&#8730</button>
+    <button onclick="operatorClick(5, '^')">^</button>
+    <button onclick="operatorClick(6, '%')">%</button>
+
+
+    </p>
+
+    <p>
+
+    <button onclick = "calculate()">Enter</button>
+    <button onclick="clearCalc()">Clear</button>
+    </p>
+
+
+</body>
+</html>

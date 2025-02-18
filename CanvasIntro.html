@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+
+
+    </style>
+
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+
+
+    <script>
+        let x = 50;
+        let y = 100;
+        let dx = 5;
+        let dy = 4;
+
+        r = 40;
+        cw = 500;
+        ch = 500;
+
+        let bgColor = 252;
+
+        function draw(){
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 2 * Math.PI, true);
+
+            ctx.fillStyle = "#ffffff";
+
+            ctx.fillStyle = "#" + bgColor.toString(16);
+            
+            
+            ctx.fillRect(0,0,500,500);
+         
+
+            ctx.fillStyle = "#FFC0CB";
+            ctx.fill();
+
+            if(x < r || x > cw - r){
+                dx = -dx;
+                bgColor+= 10;
+            }
+            if(y < r || y > ch - r){
+                dy = -dy;
+                bgColor+= 10;
+            }
+
+            x+=dx;
+            y+=dy;
+            
+
+
+            ctx.stroke();
+        }
+
+        setInterval(draw, 5);
+
+    </script>
+
+</body>
+
+</html>

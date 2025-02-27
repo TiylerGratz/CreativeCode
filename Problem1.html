@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+    
+    
+    
+        </style>
+    
+        <title> Canvas Basics</title>
+    
+    </head>
+    <body>
+        <canvas id="myCanvas" width="2000" height="1000">
+            <img src = "CatPropeller1.png" id = "Cat">
+        </canvas>
+
+        <script>
+            let c = document.getElementById("myCanvas");
+            let ctx = c.getContext("2d");
+
+            ctx.fillStyle = "#FFB6C1";      
+            ctx.fillRect(0,0,2000,2000);
+
+            
+            
+            let image = document.getElementById("Cat");
+
+            image.addEventListener("load", (e) => {
+                ctx.drawImage(image, 10, 10, 200, 300);
+            });
+
+            let y = 0;
+            let x = 300;
+
+            function animate(){
+                ctx.fillStyle = "#123456";
+                     
+                ctx.fillRect(x,y,200,200);
+                y++;
+
+                if(y < 0 || y > 8000){
+                    x = x + 200;
+                    y = 0;
+                }
+            }
+
+
+
+            setInterval(animate, 1);
+
+        </script>
+
+
+
+
+    </body>
+
+</html>

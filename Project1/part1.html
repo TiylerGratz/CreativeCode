@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+
+
+    </style>
+
+    <title> Canvas Basics</title>
+
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+
+
+    <script>
+        n = 10;
+
+        let x = [];
+        let y = [];
+        let dx = [];
+        let dy = [];
+        r = [];
+
+        fs = [];
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        
+        cw = 500;
+        ch = 500;
+
+        let bgColor = 252;
+
+        for(let i = 0; i < n; i++){
+            r[i] = Math.floor(Math.random() * 90 + 10);
+            x[i] = Math.floor(Math.random() * (cw - r[i] * 2)) + r[i];
+            y[i] = Math.floor(Math.random() * (ch - r[i] * 2)) + r[i];
+            
+            dx[i] = Math.floor(Math.random() * 12 + 3);
+            dy[i] = Math.floor(Math.random() * 12 + 3);
+
+            fs[i] = Math.floor(Math.random() * 16777215);
+
+            if(Math.random() < 0.5){
+                dx[i] *= -1;
+            }
+            if(Math.random() < 0.5){
+                dy[i] *= -1;
+            }
+        }
+         
+        
+
+        function draw(){
+
+                ctx.fillStyle = "#ffffff";
+
+                ctx.fillStyle = "#" + bgColor.toString(16);
+                
+                
+                ctx.fillRect(0,0,cw,ch);
+
+            for(let i = 0; i < n; i++){
+                ctx.beginPath();
+                
+                ctx.arc(x[i], y[i], r[i], 0, 2 * Math.PI, true);
+
+                //let circleColor = Math.floor(Math.random() * 16777215);
+
+
+                ctx.fillStyle = "#" + fs[i].toString(16);
+                ctx.fill();
+
+                if(x[i] < r[i] || x[i]> cw - r[i]){
+                    dx[i] = -dx[i];
+                    bgColor+= 10;
+                }
+                if(y[i] < r[i] || y[i] > ch - r[i]){
+                    dy[i] = -dy[i];
+                    bgColor+= 10;
+                }
+
+                x[i]+=dx[i];
+                y[i]+=dy[i];
+                
+
+            }
+        }
+
+        setInterval(draw, 30);
+
+    </script>
+
+</body>
+
+</html>

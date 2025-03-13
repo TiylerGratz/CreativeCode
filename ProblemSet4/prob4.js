@@ -4,6 +4,7 @@ let newLine;
 let lines = [];
 let circles = [];
 let n = 100;
+let mod = 0;
 
 class Circle{
     constructor(x, y){
@@ -16,8 +17,8 @@ class Circle{
         push();
         translate(this.position);
         stroke('rgba(255, 255, 255, 0.51)');
-        strokeWeight(random(10) + 5);
-        ellipse(this.x, this.y, 5);
+        strokeWeight(random(6) + 2);
+        ellipse(this.x, this.y, 2).fill('white');
         pop();
     }
 
@@ -34,7 +35,7 @@ class Line{
         this.noiseLevelY = random(windowHeight);
         this.noiseScale = 0.3;
 
-        this.x = frameCount;
+        this.x = 2000;
         this.nx = this.noiseScale * this.x;
 
         this.y = this.noiseLevelX * noise(this.nx);
@@ -103,8 +104,11 @@ function draw(){
         circles[i].display();
         if(circles[i].y > windowHeight){
             circles.splice(i, 1);
+           
+            mod += 0.3;
         }
     }
+    rect(0, windowHeight - mod, windowWidth, mod).fill("rgb(44, 44, 205)");
     
 
 }

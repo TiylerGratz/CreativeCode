@@ -156,7 +156,7 @@ class GridSquare {
                 this.ind = 3;
                 this.addSeeds();
             } else {
-                if (this.ind < lowWaterFrames.length - 1 && frameCount % 40 == 0) {
+                if (this.ind < lowWaterFrames.length - 1 && frameCount % 60 == 0) {
                     this.ind++;
                 }
                 this.img = lowWaterFrames[this.ind];
@@ -493,7 +493,7 @@ function detectDominantColorRegion(num) {
             const b = video.pixels[index + 2];
             const currentColor = [r, g, b];
 
-            if (colorDistance(currentColor, colors[num]) < 40) {
+            if (colorDistance(currentColor, colors[num]) < 100) {
                 let regionIndex = row * cols + col;
                 counts[regionIndex]++;
             }
